@@ -1,0 +1,330 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Dj's App</title>
+
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <style>
+        .flex-center {
+            width: 100%;
+            min-height: 60px;
+            background: #000;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: compact;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+        .icon-3d {
+            padding: 10px;
+            -webkit-animation: icon3d 200ms 10;
+            animation: icon3d 200ms 10;
+            color: #fff;
+        }
+
+            .icon-3d:hover {
+                -webkit-animation: icon3d 200ms infinite;
+                animation: icon3d 200ms infinite;
+            }
+
+
+        @keyframes icon3d {
+            0% {
+                text-shadow: 5px 4px rgba(244,67,54,1), -5px -6px rgba(33,150,243,1);
+            }
+
+            25% {
+                text-shadow: -5px -6px rgba(244,67,54,1), 5px 4px rgba(33,150,243,1);
+            }
+
+            50% {
+                text-shadow: 5px -4px rgba(244,67,54,1), -8px 4px rgba(33,150,243,1);
+            }
+
+            75% {
+                text-shadow: -8px -4px rgba(244,67,54,1), -5px -4px rgba(33,150,243,1);
+            }
+
+            100% {
+                text-shadow: -5px 0 rgba(244,67,54,1), 5px -4px rgba(33,150,243,1);
+            }
+        }
+
+        .fa-4x {
+            font-size: 4em;
+        }
+
+        .fa {
+            display: inline-block;
+            font: normal normal normal 14px/1 FontAwesome;
+            font-size: inherit;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .pic {
+            height: 60px;
+            filter: brightness(0) invert(1);
+        }
+
+    </style>
+
+</head>
+<body data-ng-app="djApp">
+    <div class="container" data-ng-controller="emailController as emailCont">
+        <div class="container card" style="border:20px; margin: 20px">
+            <div class="card-header col-lg-8">
+                <div class="col-md-6">
+                    <div class="flex-center">
+                        <p class="fa fa-4x icon-3d">Community Page</p>
+                        <img class="fa fa-4x icon-3d pic" src="http://downloadicons.net/sites/default/files/dog-icon-87372.png" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="flex-center">
+                        <i class="fa fa-github fa-4x icon-3d"></i>
+                        <i class="fa fa-twitter fa-4x icon-3d"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="center-block">
+                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12" style="border:20px; margin: 20px; float: inherit">
+                        <a class="btn btn-danger waves-effect waves-light m-l-20 btn-rounded btn-outline" data-toggle="modal" data-target="#myModal" ng-click="emailCont.showEmail()">
+                            <span>Email</span> <i class="fa fa-play"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal">
+            <form class="modal-dialog" ng-submit="emailCont.request()" name="emailCont.editForm" role="form" novalidate>
+                <div class="modal-content card-body card-padding" style="padding:5px">
+                    <div class="card-header bgm-blue">
+                        <h2>Create Email</h2>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error' : emailCont.hasValidationError('from')}">
+                        <div class="fg-line">
+                            <label class="modal-title fg-label">from</label>
+                            <input type="email" name="from" ng-model="emailCont.item.from" class="form-control fg-input" required />
+                        </div>
+                        <span ng-show="emailCont.showValidationError('from','required')"
+                              class="help-block">Email is required</span>
+                    </div>
+
+                    <div class="form-group" ng-class="{'has-error' : emailCont.hasValidationError('to')}">
+                        <div class="fg-line">
+                            <label class="modal-title fg-label">To</label>
+                            <input type="email" name="to" ng-model="emailCont.item.to" class="form-control fg-input" required />
+                        </div>
+                        <span ng-show="emailCont.showValidationError('to','required')"
+                              class="help-block">Email is required</span>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error' : emailCont.hasValidationError('subject')}">
+                        <div class="fg-line">
+                            <label class="fg-label">Subject</label>
+                            <input type="text" name="subject" ng-model="emailCont.item.subject" class="form-control fg-input" required />
+                        </div>
+                        <span ng-show="emailCont.showValidationError('subject','required')"
+                              class="help-block">Subject is required</span>
+                    </div>
+                    <div class="modal-body form-group" ng-class="{'has-error' : emailCont.hasValidationError('body')}">
+                        <div">
+                            <label class="fg-label">Body</label>
+                            <!--<summernote config="actVm.options" name="body" class="form-control" ng-model="emailCont.item.body" required></summernote>-->
+                            <input type="text" name="body" ng-model="emailCont.item.body" class="form-control fg-input" required />
+                            <span ng-show="emailCont.showValidationError('body','required')"
+                                  class="help-block" style="color: red;">Body is required</span>
+                    </div>
+                </div>
+                <div class="modal-footer form-group text-center">
+                    <button type="button" class="btn btn-primary waves-effect btn-md" data-dismiss="modal" ng-click="emailCont.request()">Send</button>
+                    <button type="button" class="btn btn-secondary waves-effect btn-md" data-dismiss="modal" ng-click="!emailCont.email">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="container" ng-controller='faqController as faq'>
+        <h1>Faq</h1>
+        <h2>Show me what you have got</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <span class="h4">Faqs</span>
+                        <button type="button" class="btn btn-primary btn-xs pull-right " data-ng-click="faq.add()">Add New Faq</button>
+                    </div>
+
+
+                    <div class="panel-body">
+                        <form class="form-inline">
+                            <div class="pull-right row" style="padding: 4px;">{{faq.filteredItems.length + ' matches'}}</div>
+                            <div class="form-group">
+                                <label>Find</label>
+                                <input type="text" class="form-control input-sm" placeholder="question"
+                                       ng-model="faq.searchText" ng-change="faq.filter()" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="sortBy">Sort By</label>
+
+                                <div class="input-group input-group-sm">
+                                    <select class="input-sm mr-20" ng-model="faq.orderBy" placeholder="sort by">
+                                        <option value="question">Question</option>
+                                        <option value="answer">Answer</option>
+                                        <option value="faqCategoryId">Faq Category</option>
+                                    </select>
+
+                                    <label class="form-check-label" style="padding: 8px;">
+                                        <input type="checkbox" class="form-check-input" ng-model="faq.reverse" style="margin: 4px">Rev
+                                    </label>
+                                </div>
+                            </div>
+
+                        </form>
+
+                        <div class="clearfix"></div>
+                        <hr />
+
+
+                        <div data-ng-repeat="item in faq.filteredItems | orderBy: faq.orderBy : faq.reverse ">
+                            <a ng-click="faq.select(item)">
+                                {{item.question + ' - (' + item.answer + ') - ' + item.faqCategoryId | date }}
+                            </a>
+                        </div>
+                        <hr />
+
+                        <ul class="col-md-8" style="margin: 0" ng-model="faq.currentPage"
+                            total-items="faq.filteredItems.length" boundary-link="true"
+                            items-per-page="faq.itemsPerPage"
+                            max-size="8"></ul>
+                        <div class="col-md-4">
+                            <select style="margin-top: 6px;" ng-model="faq.itemsPerPage"
+                                    ng-options="count as count + ' / page' for count in faq.itemsPerPageOptions"></select>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+
+
+
+            <div class="col-md-6">
+                <div class="panel panel-default" ng-show="faq.item">
+                    <div class="panel-heading">
+                        <span class="h4">Create / Edit Faq</span>
+                    </div>
+                    <div class="panel-body" style="margin-left: 15px; margin-right: 15px;">
+                        <form name="faq.editForm" class="form-horizontal" novalidate ng-submit="faq.save()">
+
+                            <div class="form-group">
+                                <label>Id:</label><span ng-bind="faq.item.id | uppercase"></span>
+                            </div>
+
+                            <div class="form-group" ng-class="{'has-error' : faq.hasValidationError('question')}">
+                                <label>Question</label>
+                                <input type="text" name="question" class="form-control" ng-model="faq.item.question" required />
+                                <span ng-show="faq.showValidationError('question', 'required')" class="help-block">A Question is required</span>
+                            </div>
+
+                            <div class="form-group" ng-class="{'has-error' : faq.hasValidationError('answer')}">
+                                <label>Answer</label>
+                                <input type="text" name="answer" class="form-control" ng-model="faq.item.answer" required />
+                                <span ng-show="faq.showValidationError('answer', 'required')" class="help-block">An Answer is required</span>
+                            </div>
+
+                            <div class="form-group" ng-class="{'has-error' : faq.hasValidationError('faqCategoryId')}">
+                                <label>Faq Category Id</label>
+                                <input type="number" name="faqCategoryId" class="form-control" ng-model="faq.item.faqCategoryId" required ng-min="1" ng-max="3" />
+                                <span ng-show="faq.showValidationError('faqCategoryId', 'required')" class="help-block"> A Faq Category Id is required</span>
+                                <span ng-show="faq.showValidationError('faqCategoryId', 'min')"
+                                      class="help-block">Must input a number from 1-3</span>
+                                <span ng-show="faq.showValidationError('faqCategoryId', 'max')"
+                                      class="help-block">Must input a number from 1-3</span>
+                            </div>
+
+                            <div class="form-group" ng-class="{'has-error' : faq.item.hasValidationError('displayOrder')}">
+                                <label>Display Order</label>
+                                <input type="text" name="displayOrder" class="form-control" ng-model="faq.item.displayOrder" required />
+                                <span ng-show="faq.showValidationError('displayOrder', 'required')" class="help-block">A Display Order is required</span>
+                            </div>
+
+                            <!--ng-pattern="/^[0-9]/"
+                                <span ng-show="faq.showValidationError('faqCategoryId', 'pattern')"
+                                      class="help-block">Must input a number from 1-3</span>
+                            </div>
+                                -->
+                            <button type="button" class="btn btn-primary btn-sm" id="save"
+                                    ng-enabled="faq.editForm.$dirty" ng-click="faq.save()">
+                                Save
+                            </button>
+                            <button type="button" class="btn btn-default btn-sm"
+                                    ng-click="faq.cancel()">
+                                Cancel
+                            </button>
+                            <button type="button" class="btn btn-warning btn-sm"
+                                    ng-click="faq.delete()"
+                                    ng-show="faq.item.id">
+                                Delete
+                            </button>
+                            <pre>{{faq.item | json}}</pre>
+                        </form>
+
+
+                        <!--ng-click="faq.save()"-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--<script src="/Scripts/jquery-3.2.1.js"></script>-->
+
+    <script src="/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="/Scripts/bootstrap.js"></script>
+    <script src="/Scripts/angular.js"></script>
+    <script src="/Scripts/angular.min.js"></script>
+
+    <script src="/Scripts/angular-animate.js"></script>
+    <script src="/Scripts/AngularUI/ui-router.js"></script>
+    <script src="/Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
+    <script src="/Scripts/angular-ui/ui-bootstrap.min.js"></script>
+
+    <script src="djApp.js"></script>
+
+    <!--<script src="/Scripts/paginate.js"></script>-->
+
+    <script src="services/emailService.js"></script>
+    <script src="services/faqService.js"></script>
+
+    <script src="controllers/emailController.js"></script>
+    <script src="controllers/faqController.js"></script>
+
+
+    <script>
+
+    </script>
+</body>
+</html>
