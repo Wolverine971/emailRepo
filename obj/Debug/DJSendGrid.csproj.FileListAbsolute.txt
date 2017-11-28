@@ -64,4 +64,9 @@ C:\Users\DJ\Documents\Visual Studio 2017\Projects\DJSendGrid\DJSendGrid\bin\Micr
 C:\Users\DJ\Documents\Visual Studio 2017\Projects\DJSendGrid\DJSendGrid\bin\Microsoft.Practices.Unity.RegistrationByConvention.xml
 C:\Users\DJ\Documents\Visual Studio 2017\Projects\DJSendGrid\DJSendGrid\obj\Debug\DJSendGrid.dll
 C:\Users\DJ\Documents\Visual Studio 2017\Projects\DJSendGrid\DJSendGrid\obj\Debug\DJSendGrid.pdb
+C:\Users\DJ\Documents\Visual Studio 2017\Projects\DJSendGrid\DJSendGrid\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\DJ\Documents\Visual Studio 2017\Projects\DJSendGrid\DJSendGrid\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\DJ\Documents\Visual Studio 2017\Projects\DJSendGrid\DJSendGrid\bin\HtmlAgilityPack.dll
+C:\Users\DJ\Documents\Visual Studio 2017\Projects\DJSendGrid\DJSendGrid\bin\HtmlAgilityPack.pdb
+C:\Users\DJ\Documents\Visual Studio 2017\Projects\DJSendGrid\DJSendGrid\bin\HtmlAgilityPack.xml
 C:\Users\DJ\Documents\Visual Studio 2017\Projects\DJSendGrid\DJSendGrid\obj\Debug\DJSendGrid.csprojResolveAssemblyReference.cache
