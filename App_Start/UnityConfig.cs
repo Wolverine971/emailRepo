@@ -6,6 +6,7 @@ using System.Security.Principal;
 using System.Web;
 using Unity.WebApi;
 using Microsoft.Practices.Unity;
+using DJSendGrid;
 
 namespace DJSendGrid
 {
@@ -20,14 +21,15 @@ namespace DJSendGrid
 
             // e.g. container.RegisterType<ITestService, TestService>();
 
+            container.RegisterType<IGrabbyService, GrabbyService>();
 
            container.RegisterType<IEmailService, EmailService>();
 
-            container.RegisterType<IDataProvider, SqlDataProvider>(
-           new InjectionConstructor(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString));
+           // container.RegisterType<IDataProvider, SqlDataProvider>(
+           //new InjectionConstructor(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString));
 
-            container.RegisterType<IPrincipal>(new TransientLifetimeManager(),
-                     new InjectionFactory(con => HttpContext.Current.User));
+           // container.RegisterType<IPrincipal>(new TransientLifetimeManager(),
+           //          new InjectionFactory(con => HttpContext.Current.User));
 
 
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);

@@ -17,28 +17,28 @@ namespace DJSendGrid
         {
 
 
-            CookieAuthenticationOptions cookieAuthenticationOptions = new CookieAuthenticationOptions();
-            {
-                cookieAuthenticationOptions.SlidingExpiration = true;
-                cookieAuthenticationOptions.AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie;
-                cookieAuthenticationOptions.LoginPath = new PathString("/");
-                cookieAuthenticationOptions.Provider = new CookieAuthenticationProvider
-                {
-                    OnApplyRedirect = ctx =>
-                    {
-                        if (!IsAjaxRequest(ctx.Request) && !IsApiRequest(ctx.Request))
-                        {
-                            ctx.Response.Redirect(ctx.RedirectUri);
-                        }
-                    }
-                };
-                cookieAuthenticationOptions.CookieName = "authentication";
-                //if (ConfigurationManager.AppSettings["UsePlaintextAuthCookie"] == "true")
-                //{
-                //    cookieAuthenticationOptions.TicketDataFormat = new PlaintextSecureDataFormat();
-                //};
-                app.UseCookieAuthentication(cookieAuthenticationOptions);
-            };
+            //CookieAuthenticationOptions cookieAuthenticationOptions = new CookieAuthenticationOptions();
+            //{
+            //    cookieAuthenticationOptions.SlidingExpiration = true;
+            //    cookieAuthenticationOptions.AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie;
+            //    cookieAuthenticationOptions.LoginPath = new PathString("/");
+            //    cookieAuthenticationOptions.Provider = new CookieAuthenticationProvider
+            //    {
+            //        OnApplyRedirect = ctx =>
+            //        {
+            //            if (!IsAjaxRequest(ctx.Request) && !IsApiRequest(ctx.Request))
+            //            {
+            //                ctx.Response.Redirect(ctx.RedirectUri);
+            //            }
+            //        }
+            //    };
+            //    cookieAuthenticationOptions.CookieName = "authentication";
+            //    if (ConfigurationManager.AppSettings["UsePlaintextAuthCookie"] == "true")
+            //    {
+            //        cookieAuthenticationOptions.TicketDataFormat = new PlaintextSecureDataFormat();
+            //    };
+            //    app.UseCookieAuthentication(cookieAuthenticationOptions);
+            //};
 
             //--------------------app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
 

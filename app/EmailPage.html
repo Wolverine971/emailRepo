@@ -78,24 +78,17 @@
             height: 60px;
             filter: brightness(0) invert(1);
         }
-
     </style>
 
 </head>
 <body data-ng-app="djApp">
     <div class="container" data-ng-controller="emailController as emailCont">
         <div class="container card" style="border:20px; margin: 20px">
-            <div class="card-header col-lg-8">
-                <div class="col-md-6">
-                    <div class="flex-center">
+            <div class="card-header flex-center">
+                <div style="height:5vw">
+                    <div style="height:1vw">
                         <p class="fa fa-4x icon-3d">Community Page</p>
                         <img class="fa fa-4x icon-3d pic" src="http://downloadicons.net/sites/default/files/dog-icon-87372.png" />
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="flex-center">
-                        <i class="fa fa-github fa-4x icon-3d"></i>
-                        <i class="fa fa-twitter fa-4x icon-3d"></i>
                     </div>
                 </div>
             </div>
@@ -105,10 +98,39 @@
                         <a class="btn btn-danger waves-effect waves-light m-l-20 btn-rounded btn-outline" data-toggle="modal" data-target="#myModal" ng-click="emailCont.showEmail()">
                             <span>Email</span> <i class="fa fa-play"></i>
                         </a>
+
+                    </div>
+                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12" style="border:20px; margin: 20px; float: inherit">
+                        <form class="form-inline">
+                            <label class="sr-only" for="inlineFormInput">Website Url</label>
+                            <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" ng-model="emailCont.scrapeWebsite" id="inlineFormInput" placeholder="Website Url">
+
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Looking for what</label>
+                                <select class="form-control" ng-model="emailCont.scrapeChoice" id="exampleFormControlSelect1" ng-options="item for item in emailCont.scrapeOptions">
+                                </select>
+                            </div>
+
+                            <div class="input-group add-on" ng-show="emailCont.scrapeChoice == 'word'">
+                                <input class="form-control"  placeholder="Search" name="srch-term" id="srch-term" type="text">
+                                <div class="input-group-btn" ng-model="emailCont.searchWord">
+                                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                </div>
+                            </div>
+                            <button type="button" ng-click="emailCont.search()" class="btn btn-primary">Search</button>
+                        </form>
+                    </div>
+                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12" style="border:20px; margin: 20px; float: inherit">
+                        <p>List of scraped links:</p>
+                        <div ng-repeat="item in emailCont.scrapedLinks track by $index">
+                         {{item}}
+                        </div>
                     </div>
                 </div>
-
+                
             </div>
+            <p>JSON:</p>
+            {{JSON || emailCont.scrapedLinks}}
             <!-- /.col-lg-12 -->
         </div>
 
@@ -318,6 +340,7 @@
 
     <script src="services/emailService.js"></script>
     <script src="services/faqService.js"></script>
+    <script src="services/ScrapeService.js"></script>
 
     <script src="controllers/emailController.js"></script>
     <script src="controllers/faqController.js"></script>

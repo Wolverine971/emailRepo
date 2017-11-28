@@ -7,16 +7,16 @@
 
     emailController.inject = [
         'emailService'
+        , 'scrapeService'
     ];
 
     function emailController(
-        emailService) {
+        emailService
+        , scrapeService) {
 
         var vm = this;
 
         vm.emailService = emailService;
-
-
         vm.$onInit = onInit;
         vm.items = [];
         vm.useThis = null;
@@ -32,6 +32,15 @@
         vm.email = false;
         vm.showEmail = _showEmail;
 
+        //---------------scrape bindings---------------
+        vm.scrapeService = scrapeService;
+        vm.scrapeWebsite = "";
+        vm.scrapeChoice = "";
+        vm.search = _search;
+        vm.searchWord = "";
+        vm.scrapeOptions = ['href', 'image', 'word'];
+
+        vm.scrapedLinks = [];
 
         /* OPTIONS FOR SUMMERNOTE DECLARED HERE*/
         vm.options = {
@@ -48,6 +57,7 @@
                 ['height', ['height']]
             ]
         };
+
 
         function onInit() {
             //vm.userService.getCurrentUser().then(_getCurrentUserSuccess, _getCurrentUserError);
@@ -123,11 +133,34 @@
                 && vm.editForm[propertyName].$error[ruleName];
         }
 
-
-
         function _showEmail() {
             vm.email = true;
             console.log("email clicked");
+        }
+
+        function _search() {
+            var search = "";
+            if (vm.scrapeChoice == 'word') {
+                search = vm.searchWord;
+            }
+            else {
+                search = vm.scrapeChoice;
+            }
+            var data = {}
+            data.Website = vm.scrapeWebsite;
+            data.SearchingFor = search;
+            
+            vm.scrapeService.post(data).then(_scrapeSuccessful, _scrapeFailed);
+        }
+
+        function _scrapeSuccessful(data) {
+
+            vm.scrapedLinks = data;
+            console.log(vm.scrapedLinks[1]);
+            console.log(data);
+        }
+        function _scrapeFailed(error) {
+            console.log("failed");
         }
     }
 

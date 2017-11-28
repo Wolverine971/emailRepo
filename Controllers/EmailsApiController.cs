@@ -14,12 +14,12 @@ namespace DJSendGrid.Controllers
     [RoutePrefix("api/email")][AllowAnonymous]
     public class EmailsApiController : ApiController
     {
-        EmailService _svc;
+        IEmailService _svc;
         
         //private IUserAuthData _currentUser;
 
 
-        public EmailsApiController(EmailService svc)
+        public EmailsApiController(IEmailService svc)
         {
             //_currentUser = principal.Identity.GetCurrentUser();
             _svc = svc;
