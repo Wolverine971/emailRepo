@@ -28,7 +28,7 @@ namespace DJSendGrid
 
         public async Task<bool> Execute(EmailRequest model)
         {
-            var apiKey = WebConfigurationManager.AppSettings["djwayne"].ToString();
+            var apiKey = WebConfigurationManager.AppSettings["sendGridKey"].ToString();
             var client = new SendGridClient(apiKey);
 
             string subject = "friends let friends #learntocode";
