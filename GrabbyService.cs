@@ -40,16 +40,14 @@ namespace DJSendGrid
                 .DocumentNode
                 .Descendants()
                 .Where(node =>
-                node.Attributes[model.SearchingFor] != null &&
-                node.Attributes[model.SearchingFor].Value.Contains(additionalParam));
-
+                node.Attributes[model.SearchingFor] != null);
+            //&&
+            //node.Attributes[model.SearchingFor].Value.Contains(additionalParam));
+            
             List<string> urls = new List<string>();
             foreach (var node in nodes)
             {
-                urls.Add(node.InnerText);
-                urls.Add(node.OuterHtml);
-
-                urls.Add(node.OriginalName);
+                
                 urls.Add(node.InnerHtml);
             }
 

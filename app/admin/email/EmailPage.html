@@ -1,0 +1,79 @@
+﻿
+<div>
+   
+    <div class="container" style="padding:20px">
+        <p>Email</p>
+        <div class="card" style="border:20px; margin: 20px">
+            <div class="card-header flex-center">
+                <div style="height:5vw">
+                    <div style="height:1vw">
+                        <p class="fa fa-4x icon-3d">Community Page</p>
+                        <img class="fa fa-4x cTran pic" src="http://downloadicons.net/sites/default/files/dog-icon-87372.png" width="30" height="30" />
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="center-block">
+                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12" style="border:20px; margin: 20px; float: inherit">
+                        <a class="btn btn-danger waves-effect waves-light m-l-20 btn-rounded btn-outline" data-toggle="modal" data-target="#myModal" ng-click="emailCont.showEmail()">
+                            <span>Email</span> <i class="fa fa-play"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" style="transform:matrix(0.866,0.5,-0.8,0.866,0,0);translate(50px,50px);">
+            <form class="modal-dialog" ng-submit="emailCont.request()" name="emailCont.editForm" role="form" novalidate>
+                <div class="modal-content card-body card-padding" style="padding:5px">
+                    <div class="card-header bgm-blue">
+                        <h2>Create Email</h2>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error' : emailCont.hasValidationError('from')}">
+                        <div class="fg-line">
+                            <label class="modal-title fg-label">from</label>
+                            <input type="email" name="from" ng-model="emailCont.item.from" class="form-control fg-input" required />
+                        </div>
+                        <span ng-show="emailCont.showValidationError('from','required')"
+                              class="help-block">Email is required</span>
+                    </div>
+
+                    <div class="form-group" ng-class="{'has-error' : emailCont.hasValidationError('to')}">
+                        <div class="fg-line">
+                            <label class="modal-title fg-label">To</label>
+                            <input type="email" name="to" ng-model="emailCont.item.to" class="form-control fg-input" required />
+                        </div>
+                        <span ng-show="emailCont.showValidationError('to','required')"
+                              class="help-block">Email is required</span>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error' : emailCont.hasValidationError('subject')}">
+                        <div class="fg-line">
+                            <label class="fg-label">Subject</label>
+                            <input type="text" name="subject" ng-model="emailCont.item.subject" class="form-control fg-input" required />
+                        </div>
+                        <span ng-show="emailCont.showValidationError('subject','required')"
+                              class="help-block">Subject is required</span>
+                    </div>
+                    <div class="modal-body form-group" ng-class="{'has-error' : emailCont.hasValidationError('body')}">
+                        <div">
+                            <label class="fg-label">Body</label>
+                            <!--<summernote config="actVm.options" name="body" class="form-control" ng-model="emailCont.item.body" required></summernote>-->
+                            <input type="text" name="body" ng-model="emailCont.item.body" class="form-control fg-input" required />
+                            <span ng-show="emailCont.showValidationError('body','required')"
+                                  class="help-block" style="color: red;">Body is required</span>
+                    </div>
+                </div>
+                <div class="modal-footer form-group text-center">
+                    <button type="button" class="btn btn-primary waves-effect btn-md" data-dismiss="modal" ng-click="emailCont.request()">Send</button>
+                    <button type="button" class="btn btn-secondary waves-effect btn-md" data-dismiss="modal" ng-click="!emailCont.email">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</div>

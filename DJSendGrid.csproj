@@ -164,13 +164,35 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\admin\badscript.js" />
+    <Content Include="app\admin\controllers\faqController.js" />
+    <Content Include="app\admin\djApp.js" />
+    <Content Include="app\admin\email\emailComponent.js" />
+    <Content Include="app\admin\email\emailController.js" />
+    <Content Include="app\admin\email\EmailPage.html" />
+    <Content Include="app\admin\Index.html" />
+    <Content Include="app\admin\scraper\scrapeController.js" />
+    <Content Include="app\admin\scraper\scraperComponent.js" />
+    <Content Include="app\admin\scraper\WebScraper.html" />
+    <Content Include="app\admin\services\emailService.js" />
+    <Content Include="app\admin\services\faqService.js" />
+    <Content Include="app\admin\services\ScrapeService.js" />
     <Content Include="app\controllers\emailController.js" />
     <Content Include="app\controllers\faqController.js" />
+    <Content Include="app\controllers\scrapeController.js" />
     <Content Include="app\djApp.js" />
     <Content Include="app\EmailPage.html" />
+    <Content Include="app\email\emailComponent.js" />
+    <Content Include="app\email\emailController.js" />
+    <Content Include="app\email\EmailPage.html" />
+    <Content Include="app\Index.html" />
+    <Content Include="app\scraper\scrapeController.js" />
+    <Content Include="app\scraper\scraperComponent.js" />
+    <Content Include="app\scraper\WebScraper.html" />
     <Content Include="app\services\emailService.js" />
     <Content Include="app\services\ScrapeService.js" />
     <Content Include="app\services\faqService.js" />
+    <Content Include="app\WebScraper.html" />
     <Content Include="bin\AWSSDK.Core.dll" />
     <Content Include="bin\AWSSDK.S3.dll" />
     <Content Include="bin\CommonServiceLocator.dll" />
@@ -208,7 +230,6 @@
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="css\font-awesome.css" />
     <Content Include="css\font-awesome.min.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
@@ -239,14 +260,10 @@
     <Content Include="Scripts\angular-scenario.js" />
     <Content Include="Scripts\angular-touch.js" />
     <Content Include="Scripts\angular-touch.min.js" />
-    <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.js" />
-    <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.min.js" />
-    <Content Include="Scripts\angular-ui\ui-bootstrap.js" />
-    <Content Include="Scripts\angular-ui\ui-bootstrap.min.js" />
+    <Content Include="Scripts\angular-ui-router.js" />
+    <Content Include="Scripts\angular-ui-router.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
-    <Content Include="Scripts\AngularUI\ui-router.js" />
-    <Content Include="Scripts\AngularUI\ui-router.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\errors.json" />

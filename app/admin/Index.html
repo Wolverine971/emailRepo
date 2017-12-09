@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Dj's App</title>
+    <base href="/app/admin/" />
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" />
+    <style>
+        .flex-center {
+            width: 100%;
+            min-height: 60px;
+            background: #000;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: compact;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+        .icon-3d {
+            /*padding: 10px;*/
+            -webkit-animation: icon3d 200ms 10;
+            animation: icon3d 200ms 10;
+            color: #fff;
+            
+        }
+
+            .icon-3d:hover {
+                -webkit-animation: icon3d 200ms infinite;
+                animation: icon3d 200ms infinite;
+                
+            }
+
+
+        @keyframes icon3d {
+            0% {
+                text-shadow: 5px 4px rgba(244,67,54,1), -5px -6px rgba(33,150,243,1);
+            }
+
+            25% {
+                text-shadow: -5px -6px rgba(244,67,54,1), 5px 4px rgba(33,150,243,1);
+            }
+
+            50% {
+                text-shadow: 5px -4px rgba(244,67,54,1), -8px 4px rgba(33,150,243,1);
+            }
+
+            75% {
+                text-shadow: -8px -4px rgba(244,67,54,1), -5px -4px rgba(33,150,243,1);
+            }
+
+            100% {
+                text-shadow: -5px 0 rgba(244,67,54,1), 5px -4px rgba(33,150,243,1);
+            }
+        }
+
+        .fa-4x {
+            font-size: 4em;
+        }
+
+        .fa {
+            display: inline-block;
+            font: normal normal normal 14px/1 FontAwesome;
+            font-size: inherit;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .pic {
+            /*height: 60px;*/
+            filter: brightness(0) invert(1);
+        }
+
+        .cTran {
+            -webkit-transition: width 2s, height 2s; /* For Safari 3.1 to 6.0 */
+            transition: width 2s, height 2s;
+        }
+            .cTran:hover {
+                width: 200px;
+                height: 200px;
+            }
+    </style>
+
+</head>
+<body ng-app="djApp">
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+            <img src="https://d30y9cdsu7xlg0.cloudfront.net/png/67107-200.png" width="30" height="30" alt="" class="cTran">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" ui-sref="email">Email Page</a>
+                    <span class="sr-only">(current)</span>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" ui-sref="scraper">
+                        WebScraper
+
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        
+
+        <div>
+            <p>UI VIEW</p>
+            <ui-view>
+
+            </ui-view>
+        </div>
+    </div>
+
+    <script src="/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="/Scripts/bootstrap.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+
+
+    <script src="/Scripts/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
+
+    <script src="/app/admin/djApp.js"></script>
+
+    <script src="/app/admin/email/emailComponent.js"></script>
+    <script src="/app/admin/scraper/scraperComponent.js"></script>
+
+    <script src="/app/admin/services/emailService.js"></script>
+    <script src="/app/admin/services/ScrapeService.js"></script>
+    <script src="/app/admin/email/emailController.js"></script>
+    <script src="/app/admin/scraper/scrapeController.js"></script>
+
+
+
+</body>
+</html>

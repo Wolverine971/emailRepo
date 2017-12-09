@@ -5,7 +5,7 @@
         .module('djApp')
         .controller('emailController', emailController);
 
-    emailController.inject = [
+    emailController.$inject = [
         'emailService'
         , 'scrapeService'
     ];
@@ -149,7 +149,7 @@
             var data = {}
             data.Website = vm.scrapeWebsite;
             data.SearchingFor = search;
-            
+
             vm.scrapeService.post(data).then(_scrapeSuccessful, _scrapeFailed);
         }
 
